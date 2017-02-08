@@ -8,22 +8,21 @@ namespace RealTimeCurrency.Controllers
 {
     public class HomeController : Controller
     {
+        //entry point of the application 
         public ActionResult Index()
         {
             return View();
         }
 
+        //controller for the about view
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
+        //controller for the contact view
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
     }

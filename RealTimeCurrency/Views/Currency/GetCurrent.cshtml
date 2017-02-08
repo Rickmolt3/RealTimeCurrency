@@ -1,0 +1,93 @@
+﻿@{
+    ViewBag.Title = "Current US Exchange Rates";
+}
+
+<h2>@ViewBag.title</h2>
+<hr />
+<h4>USD-Rate(United States Dollars): </h4>@ViewBag.USD
+<br />
+<h4>USD-AUD(Australian Dollars) Rate: </h4>@ViewBag.AUD
+<br />
+<h4>USD-EUR(Euro) Rate: </h4>@ViewBag.EUR
+<br />
+<h4>USD-GBP(British Pound) Rate: </h4>@ViewBag.GBP
+<br />
+<h4>USD-PLN(Polish Zloty) Rate: </h4>@ViewBag.PLN
+<br />
+<h4>USD-RUB(Russian Ruble) Rate: </h4>@ViewBag.RUS
+<br />
+<h4>USD-CNY(China Renminbi) Rate: </h4>@ViewBag.CHI
+<br />
+<h4>USD-CAD(Canadian Dollar) Rate: </h4>@ViewBag.CAN
+<br />
+<h4>USD-MXN(Mexican Peso) Rate: </h4>@ViewBag.MEX
+
+
+<html>
+<head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('upcoming', {'packages':['geochart']});
+      google.charts.setOnLoadCallback(drawRegionsMap);
+
+      function drawRegionsMap() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Country', 'Exchange Rate'],
+          ['United States', @ViewBag.USD],
+          ['Australia', @ViewBag.AUD],
+          ['France', @ViewBag.EUR],
+          ['United Kingdom', @ViewBag.GBP],
+          ['Poland', @ViewBag.PLN],
+          ['Russia',@ViewBag.RUS],
+          ['China', @ViewBag.CHI],
+          ['Canada', @ViewBag.CAN],
+          ['Mexico', @ViewBag.MEX],
+        ]);
+
+        var options = {};
+
+        var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+        chart.draw(data, options);
+      }
+    </script>
+</head>
+<body>
+    <div id="regions_div" style="width: 100%; height: 500px;"></div>
+</body>
+</html>
+
+
+
+
+
+@*<html>
+<head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Currency', 'Value'],
+          ['AUD',     @ViewBag.AUD],
+          ['EUR',      @ViewBag.EUR],
+          ['GBP',  @ViewBag.GBP],
+          ['PLN', @ViewBag.PLN],
+        ]);
+
+        var options = {
+          title: 'Current US Exchange Rate Percentages',
+          is3D: true,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+        chart.draw(data, options);
+      }
+    </script>
+</head>
+<body>
+    <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
+</body>
+</html>*@
